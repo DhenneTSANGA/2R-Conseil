@@ -115,7 +115,10 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-background/98 backdrop-blur-xl z-50 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className={cn(
+          "lg:hidden fixed inset-x-0 bottom-0 bg-background/98 backdrop-blur-xl z-50 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-auto",
+          scrolled ? "top-[64px]" : "top-[100px]"
+        )}>
           <nav className="mx-auto max-w-7xl px-6 py-8 flex flex-col gap-2">
             {navigation.map((item) => (
               <Link
