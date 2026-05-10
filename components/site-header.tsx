@@ -9,11 +9,11 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "Accueil", href: "/" },
-  { name: "Cabinet", href: "/cabinet" },
-  { name: "Services", href: "/services" },
-  { name: "Équipe", href: "/equipe" },
-  { name: "Témoignages", href: "/#temoignages" },
-  { name: "Blog", href: "/blog" },
+  { name: "Le Cabinet", href: "/cabinet" },
+  { name: "Expertises", href: "/services" },
+  { name: "Formations", href: "/formations" },
+  { name: "Actualités", href: "/blog" },
+  { name: "Carrières", href: "/carrieres" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -29,103 +29,123 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || mobileOpen
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className={cn(
-            "relative h-24 w-44 transition-all duration-300 group-hover:scale-105",
-            !scrolled && !mobileOpen && "bg-white/10 rounded-lg px-2 py-1 backdrop-blur-sm"
-          )}>
-            <Image
-              src="/logo 2r.png"
-              alt="Cabinet 2R Conseil"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-        </Link>
-
-        {/* Nav desktop */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "text-sm font-semibold transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-brand-green after:transition-all hover:after:w-full",
-                scrolled 
-                  ? "text-foreground/80 hover:text-primary" 
-                  : "text-white hover:text-white"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* CTA desktop */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:+24100000000"
-            className={cn(
-              "flex items-center gap-2 text-sm font-semibold transition-colors",
-              scrolled ? "text-foreground/80" : "text-white"
-            )}
-          >
-            <Phone className="h-4 w-4 text-brand-green" />
-            <span>+241 00 00 00 00</span>
+    <header className="fixed inset-x-0 top-0 z-50 flex flex-col pointer-events-none">
+      {/* Topbar - Toujours visible avec un style minimaliste */}
+      <div className={cn(
+        "w-full py-2 transition-all duration-500 pointer-events-auto",
+        scrolled 
+          ? "bg-primary border-b border-white/5 translate-y-[-100%] opacity-0 h-0 py-0 overflow-hidden" 
+          : "bg-primary/95 backdrop-blur-sm border-b border-white/5"
+      )}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-6">
+          <a href="tel:+24100000000" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/80 hover:text-accent transition-colors">
+            <Phone className="h-3 w-3 text-accent" />
+            +241 00 00 00 00
           </a>
-          <Button asChild className="bg-brand-green hover:bg-brand-green/90 text-primary rounded-full px-6 font-bold shadow-lg border-b-2 border-black/10">
-            <Link href="/contact">Demander un devis</Link>
+          <Button asChild variant="link" className="h-auto p-0 text-[10px] font-bold uppercase tracking-widest text-accent hover:text-white transition-colors border-l border-white/10 pl-6 rounded-none">
+            <Link href="/contact">Demander une consultation</Link>
           </Button>
         </div>
+      </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className={cn(
-            "lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors",
-            scrolled || mobileOpen ? "text-primary hover:bg-secondary" : "text-white hover:bg-white/10"
-          )}
-          onClick={() => setMobileOpen((s) => !s)}
-          aria-label="Ouvrir le menu"
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 text-brand-green" />}
-        </button>
+      {/* Main Navigation */}
+      <div
+        className={cn(
+          "w-full transition-all duration-500 pointer-events-auto",
+          scrolled || mobileOpen
+            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm py-1 sm:py-2"
+            : "bg-transparent py-2 sm:py-4",
+        )}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
+          {/* Logo */}
+          <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]">
+            <div className="relative h-14 w-40 sm:h-12 sm:w-40 lg:h-16 lg:w-52">
+              <Image
+                src="/logo 2r.png"
+                alt="Cabinet 2R Conseil"
+                fill
+                className="object-contain transition-all duration-500"
+                priority
+              />
+            </div>
+          </Link>
+
+          {/* Nav desktop */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "px-4 py-2 text-sm font-medium transition-all duration-300 rounded-sm relative group",
+                  scrolled || mobileOpen
+                    ? "text-primary hover:bg-secondary/50" 
+                    : "text-white hover:bg-white/10"
+                )}
+              >
+                {item.name}
+                <span className={cn(
+                  "absolute bottom-1 left-4 right-4 h-0.5 scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left",
+                  scrolled || mobileOpen ? "bg-accent" : "bg-brand-gold"
+                )} />
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right Section Desktop */}
+          <div className="hidden lg:flex items-center">
+            {/* Vide ou bouton secondaire si besoin, mais CTA principal est en Topbar */}
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className={cn(
+              "lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm transition-colors",
+              scrolled || mobileOpen ? "text-primary hover:bg-secondary" : "text-white hover:bg-white/10"
+            )}
+            onClick={() => setMobileOpen((s) => !s)}
+            aria-label="Ouvrir le menu"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
-          <nav className="mx-auto max-w-7xl px-4 py-6 flex flex-col gap-1">
+        <div className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-background/98 backdrop-blur-xl z-50 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+          <nav className="mx-auto max-w-7xl px-6 py-8 flex flex-col gap-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="px-3 py-3 rounded-md text-base font-medium text-foreground hover:bg-secondary transition-colors"
+                className="group flex items-center justify-between py-4 border-b border-border/50 text-xl font-serif text-primary hover:text-accent transition-colors"
               >
                 {item.name}
+                <ArrowRight className="h-5 w-5 opacity-0 -translate-x-4 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
               </Link>
             ))}
-            <Button asChild className="mt-4 bg-brand-green hover:bg-brand-green/90 text-primary rounded-full h-12 font-bold shadow-lg">
-              <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                Demander un devis
-              </Link>
-            </Button>
+            <div className="mt-8 flex flex-col gap-6">
+              <a href="tel:+24100000000" className="flex items-center gap-3 text-lg font-medium text-foreground">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
+                  <Phone className="h-5 w-5 text-brand-green" />
+                </div>
+                +241 00 00 00 00
+              </a>
+              <Button asChild size="lg" className="bg-primary text-primary-foreground rounded-none h-14 text-sm font-bold uppercase tracking-widest shadow-xl">
+                <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                  Demander une consultation
+                </Link>
+              </Button>
+            </div>
           </nav>
         </div>
       )}
     </header>
   )
 }
+
+import { ArrowRight } from "lucide-react"

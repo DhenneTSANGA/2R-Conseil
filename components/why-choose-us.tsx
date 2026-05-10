@@ -1,96 +1,98 @@
-import Image from "next/image"
-import { Award, Zap, Shield, TrendingUp, Lock, Sparkles, FileCheck, Headphones } from "lucide-react"
+"use client"
 
-const raisons = [
+import { motion } from "framer-motion"
+import { ShieldCheck, Zap, Globe, Users, BarChart3, Fingerprint } from "lucide-react"
+
+const reasons = [
   {
-    icon: Award,
-    titre: "Expertise certifiée",
-    description: "Une équipe de professionnels diplômés et certifiés OHADA, OEC et IFAC.",
+    icon: ShieldCheck,
+    titre: "Éthique & Indépendance",
+    description: "Une intégrité absolue garantissant des conseils objectifs et impartiaux.",
   },
   {
-    icon: Sparkles,
-    titre: "Accompagnement personnalisé",
-    description: "Un interlocuteur dédié qui comprend les enjeux spécifiques de votre métier.",
+    icon: Globe,
+    titre: "Expertise OHADA",
+    description: "Une parfaite maîtrise des normes juridiques et fiscales régionales.",
   },
   {
-    icon: Zap,
-    titre: "Réactivité",
-    description: "Réponse sous 24 à 48 heures, suivi proactif et disponibilité constante.",
+    icon: BarChart3,
+    titre: "Création de Valeur",
+    description: "Nos interventions visent l'optimisation concrète de vos performances.",
   },
   {
-    icon: TrendingUp,
-    titre: "Outils numériques modernes",
-    description: "Plateforme client sécurisée, dashboards, signature électronique et plus.",
-  },
-  {
-    icon: Lock,
-    titre: "Confidentialité totale",
-    description: "Strict respect du secret professionnel et chiffrement de vos données.",
-  },
-  {
-    icon: Shield,
-    titre: "Optimisation financière",
-    description: "Réduction d'erreurs, économies fiscales et meilleure visibilité sur vos comptes.",
-  },
-  {
-    icon: FileCheck,
-    titre: "Conformité réglementaire",
-    description: "Veille juridique permanente et adaptation continue aux normes OHADA.",
-  },
-  {
-    icon: Headphones,
-    titre: "Support continu",
-    description: "Une équipe à votre écoute, du conseil ponctuel à l'externalisation complète.",
+    icon: Users,
+    titre: "Proximité Stratégique",
+    description: "Des experts dédiés qui s'immergent dans vos enjeux métiers.",
   },
 ]
 
 export function WhyChooseUs() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-premium-gradient text-primary-foreground">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/placeholder.svg?height=1080&width=1920&query=abstract%20dark%20navy%20blue%20geometric%20corporate%20pattern%20texture%20luxury"
-          alt=""
-          fill
-          className="object-cover opacity-10"
-        />
+    <section className="bg-primary py-24 lg:py-32 overflow-hidden relative">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-accent)_0%,_transparent_70%)] blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Pourquoi nous choisir
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-balance">
-            Huit raisons de nous confier vos enjeux financiers.
-          </h2>
-          <p className="mt-6 text-base text-primary-foreground/75 leading-relaxed text-pretty">
-            Une approche qui combine expertise, proximité et outils modernes pour faire du Cabinet 2R Conseil le partenaire durable de votre croissance.
-          </p>
-        </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Engagement & Valeurs</p>
+              <h2 className="mt-6 font-serif text-4xl sm:text-5xl font-medium text-white leading-tight">
+                L&apos;excellence comme <span className="italic font-light">standard absolu.</span>
+              </h2>
+              <p className="mt-8 text-lg text-white/70 font-light leading-relaxed max-w-xl">
+                Au Cabinet 2R Conseil, nous ne nous contentons pas de traiter des chiffres. Nous bâtissons des relations de confiance durables basées sur la rigueur et l&apos;innovation.
+              </p>
+            </motion.div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10 rounded-xl overflow-hidden border border-primary-foreground/10">
-          {raisons.map((r) => {
-            const Icon = r.icon
-            return (
-              <div
-                key={r.titre}
-                className="bg-primary p-6 lg:p-8 transition-colors hover:bg-primary/80"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-green/15 text-brand-green">
-                  <Icon className="h-5 w-5" />
+            <div className="mt-12 grid sm:grid-cols-2 gap-8">
+              {reasons.map((item, i) => {
+                const Icon = item.icon
+                return (
+                  <motion.div
+                    key={item.titre}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center bg-white/5 border border-white/10 text-accent mb-6">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-serif font-medium text-white">{item.titre}</h3>
+                    <p className="mt-2 text-sm text-white/50 leading-relaxed font-light">{item.description}</p>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative hidden lg:block"
+          >
+            <div className="aspect-[4/5] relative border border-white/10 p-4">
+              <div className="absolute -top-10 -right-10 w-40 h-40 border-t border-r border-accent/30" />
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 border-b border-l border-accent/30" />
+              <div className="relative h-full w-full overflow-hidden bg-white/5 backdrop-blur-3xl flex items-center justify-center">
+                <div className="text-center p-12">
+                  <Fingerprint className="h-20 w-20 text-accent mx-auto mb-8 opacity-50" />
+                  <p className="font-serif text-2xl text-white italic">"Votre confiance est notre actif le plus précieux."</p>
+                  <p className="mt-6 text-xs font-bold uppercase tracking-widest text-accent">Direction Générale</p>
                 </div>
-                <h3 className="mt-5 font-serif text-lg font-semibold text-primary-foreground tracking-tight">
-                  {r.titre}
-                </h3>
-                <p className="mt-2 text-sm text-primary-foreground/70 leading-relaxed">
-                  {r.description}
-                </p>
               </div>
-            )
-          })}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
+

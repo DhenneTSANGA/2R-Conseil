@@ -1,122 +1,86 @@
+"use client"
+
 import Image from "next/image"
-import { Quote, Star } from "lucide-react"
+import { motion } from "framer-motion"
+import { Quote } from "lucide-react"
 
 const temoignages = [
   {
-    citation:
-      "Le Cabinet 2R nous a permis de réduire nos erreurs comptables de 80% et d'optimiser notre fiscalité. Un partenaire indispensable.",
+    citation: "Le Cabinet 2R Conseil a transformé notre approche de la conformité fiscale. Leur rigueur et leur vision stratégique sont des atouts majeurs pour notre groupe.",
     auteur: "Marie-Claire Mavoungou",
     poste: "Directrice Financière",
     entreprise: "GabonLogistics SA",
-    avatar: "/placeholder.svg?height=120&width=120&query=professional%20african%20businesswoman%20portrait%20smiling%20corporate",
+    photo: "/placeholder.jpg?height=400&width=400&query=professional%20african%20businesswoman%20portrait%20smiling%20corporate",
   },
   {
-    citation:
-      "Une équipe rigoureuse, disponible et profondément experte des réalités gabonaises. Nous leur confions tous nos audits annuels.",
+    citation: "Un accompagnement d'exception. L'équipe fait preuve d'une maîtrise parfaite des enjeux OHADA, ce qui sécurise l'ensemble de nos opérations régionales.",
     auteur: "Jean-Pierre Boundou",
     poste: "PDG",
     entreprise: "Boundou Industries",
-    avatar: "/placeholder.svg?height=120&width=120&query=professional%20african%20businessman%20portrait%20suit%20corporate",
-  },
-  {
-    citation:
-      "Leur accompagnement à la création d'entreprise nous a fait gagner six mois. Un cabinet véritablement stratégique.",
-    auteur: "Aïcha Ndong",
-    poste: "Fondatrice",
-    entreprise: "Ndong & Associés",
-    avatar: "/placeholder.svg?height=120&width=120&query=professional%20african%20woman%20entrepreneur%20portrait%20smiling",
+    photo: "/placeholder.jpg?height=400&width=400&query=professional%20african%20businessman%20portrait%20suit%20corporate",
   },
 ]
 
-const partenaires = [
-  "GabonOil",
-  "BGFI Bank",
-  "Sogara",
-  "Comilog",
-  "Olam Gabon",
-  "Setrag",
-]
+const partenaires = ["GabonOil", "BGFI Bank", "Sogara", "Comilog", "Olam Gabon", "Setrag"]
 
 export function TestimonialsSection() {
   return (
-    <section id="temoignages" className="py-20 lg:py-28 bg-background">
+    <section id="temoignages" className="py-24 lg:py-32 bg-secondary/30 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Ils nous font confiance
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary tracking-tight text-balance">
-            La parole à nos clients.
-          </h2>
-        </div>
-
-        <div className="mt-14 grid lg:grid-cols-3 gap-6">
-          {temoignages.map((t, idx) => (
-            <figure
-              key={t.auteur}
-              className={`flex flex-col rounded-xl p-7 lg:p-8 ${
-                idx === 1
-                  ? "bg-primary text-primary-foreground border-b-4 border-brand-green shadow-xl"
-                  : "bg-secondary/60 border border-border"
-              }`}
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <Quote
-                className="h-8 w-8 text-brand-green"
-                aria-hidden
-              />
-              <div className="flex gap-1 mt-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-4 w-4 fill-brand-green text-brand-green"
-                  />
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent mb-6">Confiance & Partenariats</p>
+              <h2 className="font-serif text-4xl sm:text-5xl font-medium text-primary leading-tight">
+                Ils bâtissent leur <br />
+                <span className="italic font-light text-primary/80">succès avec nous.</span>
+              </h2>
+              <p className="mt-8 text-lg text-muted-foreground font-light leading-relaxed">
+                La satisfaction de nos clients est le seul indicateur de notre réussite. Nous sommes fiers d&apos;accompagner les fleurons de l&apos;économie gabonaise.
+              </p>
+            </motion.div>
+
+            {/* Partenaires Grid */}
+            <div className="mt-16 pt-12 border-t border-border">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-primary/40 mb-8">Partenaires Stratégiques</p>
+              <div className="grid grid-cols-2 gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all">
+                {partenaires.map((p) => (
+                  <div key={p} className="text-sm font-serif font-bold text-primary tracking-widest">
+                    {p}
+                  </div>
                 ))}
               </div>
-              <blockquote
-                className={`mt-5 font-serif text-lg leading-relaxed text-pretty ${
-                  idx === 1 ? "text-primary-foreground" : "text-foreground"
-                }`}
-              >
-                &ldquo;{t.citation}&rdquo;
-              </blockquote>
-              <figcaption className="mt-8 flex items-center gap-4">
-                <div className="relative h-12 w-12 shrink-0 rounded-full overflow-hidden bg-secondary">
-                  <Image src={t.avatar} alt={t.auteur} fill className="object-cover" />
-                </div>
-                <div>
-                  <p
-                    className={`font-semibold text-sm ${
-                      idx === 1 ? "text-primary-foreground" : "text-foreground"
-                    }`}
-                  >
-                    {t.auteur}
-                  </p>
-                  <p
-                    className={`text-xs ${
-                      idx === 1 ? "text-primary-foreground/70" : "text-muted-foreground"
-                    }`}
-                  >
-                    {t.poste} · {t.entreprise}
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+            </div>
+          </div>
 
-        {/* Partenaires */}
-        <div className="mt-20 pt-12 border-t border-border">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Quelques entreprises qui nous font confiance
-          </p>
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {partenaires.map((p) => (
-              <div
-                key={p}
-                className="flex items-center justify-center h-12 text-center font-serif text-lg font-semibold text-muted-foreground/60 hover:text-brand-green transition-colors"
+          <div className="lg:col-span-7 space-y-8">
+            {temoignages.map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                className="bg-background p-10 lg:p-14 border border-border relative group"
               >
-                {p}
-              </div>
+                <Quote className="absolute top-10 right-10 h-12 w-12 text-accent opacity-10 group-hover:opacity-20 transition-opacity" />
+                <blockquote className="font-serif text-2xl lg:text-3xl text-primary italic font-light leading-snug mb-10">
+                  "{t.citation}"
+                </blockquote>
+                <div className="flex items-center gap-6">
+                  <div className="h-14 w-14 relative bg-secondary">
+                    <Image src={t.photo} alt={t.auteur} fill className="object-cover grayscale" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary">{t.auteur}</p>
+                    <p className="text-xs text-accent font-medium mt-1 uppercase tracking-wider">{t.poste} — {t.entreprise}</p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -124,3 +88,4 @@ export function TestimonialsSection() {
     </section>
   )
 }
+

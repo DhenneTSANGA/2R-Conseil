@@ -1,108 +1,90 @@
+"use client"
+
 import Image from "next/image"
-import { CheckCircle2 } from "lucide-react"
+import { motion } from "framer-motion"
+import { Check } from "lucide-react"
 
-const valeurs = [
-  { titre: "Confidentialité", description: "Strict respect du secret professionnel sur chaque dossier." },
-  { titre: "Rigueur", description: "Méthodologie éprouvée et conformité réglementaire absolue." },
-  { titre: "Transparence", description: "Communication claire, honoraires sans surprise." },
-  { titre: "Innovation", description: "Outils digitaux modernes au service de votre performance." },
-]
-
-const timeline = [
-  { annee: "2010", titre: "Fondation", description: "Création du cabinet à Libreville." },
-  { annee: "2014", titre: "Expansion", description: "Ouverture du pôle audit et fiscalité." },
-  { annee: "2018", titre: "Digitalisation", description: "Lancement de notre plateforme client." },
-  { annee: "2024", titre: "Référence", description: "Plus de 200 entreprises accompagnées." },
+const piliers = [
+  "Rigueur OHADA & Internationale",
+  "Transparence & Déontologie",
+  "Innovation & Digitalisation",
+  "Expertise Multi-sectorielle"
 ]
 
 export function AboutSection() {
   return (
-    <section id="cabinet" className="py-20 lg:py-28 bg-background">
+    <section id="cabinet" className="py-24 lg:py-32 bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Image + values */}
-          <div className="relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative aspect-square sm:aspect-[4/5] bg-secondary p-8">
+              <div className="absolute inset-0 border border-primary/10 translate-x-8 translate-y-8 -z-10" />
               <Image
-                src="/placeholder.svg?height=900&width=720&query=professional%20african%20business%20team%20in%20modern%20glass%20office%20discussing%20financial%20strategy%20premium%20corporate%20photography"
-                alt="Équipe du Cabinet 2R Conseil en discussion stratégique"
+                src="/placeholder.jpg?height=1000&width=800&query=corporate%20office%20glass%20meeting%20room%20luxury%20minimalist"
+                alt="Cabinet 2R Conseil"
                 fill
-                className="object-cover"
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
+              <div className="absolute bottom-12 -right-12 bg-primary p-10 shadow-2xl hidden md:block">
+                <p className="text-5xl font-serif font-bold text-accent">2010</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-white/50 mt-2">Année de Fondation</p>
+              </div>
             </div>
-            <div className="absolute -bottom-8 -right-4 lg:-right-8 bg-primary text-primary-foreground rounded-xl p-6 shadow-xl max-w-[280px]">
-              <p className="font-serif text-3xl font-semibold leading-none">2010</p>
-              <p className="mt-2 text-sm text-primary-foreground/80 leading-relaxed">
-                Création du cabinet à Libreville, Gabon.
-              </p>
-            </div>
-          </div>
+          </motion.div>
 
-          {/* Content */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              À propos du cabinet
-            </p>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary leading-tight tracking-tight text-balance">
-              Un cabinet de référence au cœur du Gabon.
-            </h2>
-            <p className="mt-6 text-base text-muted-foreground leading-relaxed text-pretty">
-              Depuis plus de quinze ans, le Cabinet 2R Conseil accompagne les entreprises
-              gabonaises dans la maîtrise de leur comptabilité, l&apos;optimisation de leur fiscalité
-              et la sécurisation de leurs opérations. Notre vocation : devenir le partenaire
-              stratégique de votre croissance.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">L&apos;institution</p>
+              <h2 className="mt-6 font-serif text-4xl sm:text-5xl font-medium text-primary leading-tight">
+                Une vision au service de <br />
+                <span className="italic font-light text-primary/80">votre pérennité.</span>
+              </h2>
+              <div className="mt-10 space-y-6">
+                <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                  Basé à Libreville, le Cabinet 2R Conseil s&apos;est imposé comme un acteur majeur de l&apos;accompagnement financier et stratégique au Gabon. Notre approche repose sur une alliance unique entre rigueur technique et compréhension fine des enjeux locaux.
+                </p>
+                <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                  Nous accompagnons une clientèle exigeante — des PME en croissance aux grandes institutions — dans la sécurisation de leurs opérations et l&apos;optimisation de leur capital humain.
+                </p>
+              </div>
 
-            <div className="mt-8 grid sm:grid-cols-2 gap-4">
-              {valeurs.map((v) => (
-                <div key={v.titre} className="flex gap-3">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-green mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-sm text-foreground">{v.titre}</p>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                      {v.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Timeline */}
-        <div className="mt-24 lg:mt-32">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Notre histoire
-            </p>
-            <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary tracking-tight">
-              Quinze années au service de l&apos;excellence.
-            </h3>
-          </div>
-
-          <div className="mt-14 relative">
-            <div className="absolute left-0 right-0 top-5 h-px bg-border hidden md:block" />
-            <div className="grid md:grid-cols-4 gap-10 md:gap-6 relative">
-              {timeline.map((item) => (
-                <div key={item.annee} className="relative md:text-center">
-                  <div className="flex md:justify-center">
-                    <div className="relative h-10 w-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center ring-4 ring-background">
-                      <span className="h-2 w-2 rounded-full bg-brand-green" />
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {piliers.map((pilier, i) => (
+                  <div key={pilier} className="flex items-center gap-3">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <Check className="h-3 w-3" />
                     </div>
+                    <span className="text-sm font-bold uppercase tracking-wider text-primary/80">{pilier}</span>
                   </div>
-                  <p className="mt-4 font-serif text-2xl font-semibold text-primary">
-                    {item.annee}
-                  </p>
-                  <p className="mt-1 font-semibold text-sm text-foreground">{item.titre}</p>
-                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
+                ))}
+              </div>
+
+              <div className="mt-16 flex items-center gap-8 border-t border-border pt-12">
+                <div>
+                  <p className="text-3xl font-serif font-bold text-primary">250+</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1">Missions Réussies</p>
                 </div>
-              ))}
-            </div>
+                <div className="h-12 w-px bg-border" />
+                <div>
+                  <p className="text-3xl font-serif font-bold text-primary">15+</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mt-1">Experts</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </section>
   )
 }
+

@@ -1,0 +1,81 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowRight, Calendar } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+
+const articles = [
+  {
+    title: "Loi de Finances 2026 : Impacts pour les PME",
+    date: "15 Mai 2026",
+    cat: "Fiscalité",
+    img: "/placeholder.jpg?height=600&width=800&query=tax%20finance%20minimalist"
+  },
+  {
+    title: "Optimisation de la Paie en zone OHADA",
+    date: "02 Mai 2026",
+    cat: "RH",
+    img: "/placeholder.jpg?height=600&width=800&query=hr%20meeting%20minimalist"
+  },
+  {
+    title: "Digitalisation Comptable : Guide Complet",
+    date: "20 Avril 2026",
+    cat: "Innovation",
+    img: "/placeholder.jpg?height=600&width=800&query=digital%20accounting%20minimalist"
+  }
+]
+
+export function BlogPreview() {
+  return (
+    <section className="py-24 lg:py-32 bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent mb-6">Actualités & Analyses</p>
+              <h2 className="font-serif text-4xl sm:text-5xl font-medium text-primary">Le regard de nos <span className="italic font-light text-primary/80">experts.</span></h2>
+            </motion.div>
+          </div>
+          <Link href="/blog" className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all group">
+            Toute l&apos;actualité
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {articles.map((art, i) => (
+            <motion.article
+              key={art.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative aspect-video mb-6 overflow-hidden bg-secondary">
+                <Image
+                  src={art.img}
+                  alt={art.title}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-primary/40 mb-3">
+                <span className="flex items-center gap-1.5"><Calendar className="h-3 w-3" /> {art.date}</span>
+                <span className="text-accent">{art.cat}</span>
+              </div>
+              <h3 className="font-serif text-xl text-primary group-hover:text-accent transition-colors">
+                {art.title}
+              </h3>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

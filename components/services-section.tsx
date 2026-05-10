@@ -1,153 +1,122 @@
-import { Calculator, ClipboardCheck, Lightbulb, GraduationCap, Users, Scale, ArrowUpRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client"
 
-const services = [
-  {
-    icon: Calculator,
-    titre: "Comptabilité",
-    description:
-      "Tenue comptable, états financiers, gestion de paie et déclarations fiscales pour une gestion rigoureuse.",
-    items: ["Tenue comptable", "États financiers", "Gestion de paie", "Déclarations fiscales"],
-    featured: true,
-  },
+import { motion } from "framer-motion"
+import { Calculator, ClipboardCheck, Lightbulb, GraduationCap, Users, Scale, ArrowRight } from "lucide-react"
+import Link from "next/link"
+
+const expertises = [
   {
     icon: ClipboardCheck,
-    titre: "Audit",
-    description:
-      "Audit légal, audit interne, contrôle financier et gestion des risques pour sécuriser vos opérations.",
-    items: ["Audit légal", "Audit interne", "Contrôle financier", "Gestion des risques"],
-  },
-  {
-    icon: Lightbulb,
-    titre: "Conseil stratégique",
-    description:
-      "Stratégie financière, création d'entreprise, optimisation fiscale et accompagnement PME sur mesure.",
-    items: ["Stratégie financière", "Création d'entreprise", "Optimisation fiscale", "Accompagnement PME"],
+    titre: "Audit & Commissariat aux Comptes",
+    description: "Certification de vos comptes, audit interne et gestion des risques pour une transparence totale.",
+    points: ["Audit légal et contractuel", "Revue des procédures", "Audit d'acquisition", "Contrôle interne"],
   },
   {
     icon: Scale,
-    titre: "Fiscalité",
-    description:
-      "Conseil fiscal, planification, contentieux et conformité OHADA pour maîtriser votre cadre réglementaire.",
-    items: ["Conseil fiscal", "Planification fiscale", "Contentieux", "Conformité OHADA"],
+    titre: "Conseil Fiscal & Juridique",
+    description: "Optimisation de votre fiscalité et sécurisation de votre cadre juridique en zone OHADA.",
+    points: ["Planification fiscale", "Assistance contrôle fiscal", "Droit des affaires", "Veille réglementaire"],
+  },
+  {
+    icon: Calculator,
+    titre: "Expertise Comptable & Sociale",
+    description: "Tenue comptable rigoureuse et externalisation de la gestion sociale pour votre sérénité.",
+    points: ["Tenue & Révision", "Reporting & Dashboards", "Gestion de la paie", "Déclarations sociales"],
   },
   {
     icon: Users,
-    titre: "Ressources humaines",
-    description:
-      "Gestion RH, paie, conformité sociale et accompagnement managérial pour valoriser votre capital humain.",
-    items: ["Gestion RH", "Paie & social", "Conformité sociale", "Accompagnement managérial"],
+    titre: "Capital Humain & Recrutement",
+    description: "Accompagnement dans la gestion de vos talents et renforcement de votre capital humain.",
+    points: ["Recrutement spécialisé", "Gestion des carrières", "Audits sociaux", "Politiques RH"],
+  },
+  {
+    icon: Lightbulb,
+    titre: "Conseil Stratégique & Financier",
+    description: "Accompagnement des dirigeants dans leurs décisions stratégiques et financières.",
+    points: ["Business Planning", "Restructuration", "Évaluation d'entreprise", "Stratégie de croissance"],
   },
   {
     icon: GraduationCap,
-    titre: "Formation",
-    description:
-      "Formations professionnelles, certifications, séminaires et coaching pour monter en compétences.",
-    items: ["Formations pro", "Certifications", "Séminaires", "Coaching entreprise"],
+    titre: "Formation & Capacité",
+    description: "Programmes de formation sur mesure pour vos collaborateurs et dirigeants.",
+    points: ["Séminaires fiscaux", "Ateliers comptables", "Formations RH", "Coaching leadership"],
   },
 ]
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-secondary/40 border-y border-border">
+    <section id="expertises" className="bg-secondary/30 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Nos expertises
-            </p>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary tracking-tight text-balance">
-              Six domaines d&apos;expertise pour votre performance.
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Pôles d&apos;Excellence</p>
+              <h2 className="mt-6 font-serif text-4xl sm:text-5xl font-medium text-primary leading-[1.1]">
+                Des expertises transversales pour une <span className="italic">vision globale.</span>
+              </h2>
+            </motion.div>
           </div>
-          <p className="text-base text-muted-foreground leading-relaxed lg:max-w-md text-pretty">
-            Une approche intégrée qui combine maîtrise technique, vision stratégique et accompagnement
-            personnalisé pour chaque entreprise.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-muted-foreground leading-relaxed lg:max-w-md font-light"
+          >
+            Le Cabinet 2R Conseil déploie un accompagnement à 360° pour sécuriser et propulser vos activités.
+          </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service) => {
-            const Icon = service.icon
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {expertises.map((item, i) => {
+            const Icon = item.icon
             return (
-              <article
-                key={service.titre}
-                className={`group relative flex flex-col rounded-xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 ${
-                  service.featured
-                    ? "bg-primary text-primary-foreground border-t-4 border-brand-green shadow-xl"
-                    : "bg-background border border-border hover:border-brand-green/50 hover:shadow-lg"
-                }`}
+              <motion.div
+                key={item.titre}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative bg-background border border-border p-10 transition-all duration-500 hover:border-accent hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
               >
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-lg ${
-                    service.featured ? "bg-brand-green/20 text-brand-green" : "bg-secondary text-primary"
-                  }`}
-                >
-                  <Icon className="h-5 w-5" />
+                <div className="flex h-14 w-14 items-center justify-center bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-500">
+                  <Icon className="h-6 w-6" />
                 </div>
 
-                <h3
-                  className={`mt-6 font-serif text-2xl font-semibold tracking-tight ${
-                    service.featured ? "text-primary-foreground" : "text-primary"
-                  }`}
-                >
-                  {service.titre}
+                <h3 className="mt-8 font-serif text-2xl font-medium text-primary group-hover:text-accent transition-colors duration-500">
+                  {item.titre}
                 </h3>
 
-                <p
-                  className={`mt-3 text-sm leading-relaxed ${
-                    service.featured ? "text-primary-foreground/75" : "text-muted-foreground"
-                  }`}
-                >
-                  {service.description}
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed font-light">
+                  {item.description}
                 </p>
 
-                <ul className="mt-6 space-y-2">
-                  {service.items.map((item) => (
-                    <li
-                      key={item}
-                      className={`flex items-center gap-2 text-sm ${
-                        service.featured ? "text-primary-foreground/85" : "text-foreground/85"
-                      }`}
-                    >
-                      <span
-                        className={`h-1 w-1 rounded-full ${
-                          service.featured ? "bg-brand-green" : "bg-accent"
-                        }`}
-                      />
-                      {item}
+                <ul className="mt-8 space-y-3">
+                  {item.points.map((point) => (
+                    <li key={point} className="flex items-center gap-3 text-xs font-medium text-primary/70 uppercase tracking-widest">
+                      <span className="h-px w-3 bg-accent" />
+                      {point}
                     </li>
                   ))}
                 </ul>
 
-                <a
-                  href="#contact"
-                  className={`mt-8 inline-flex items-center gap-2 text-sm font-semibold transition-colors ${
-                    service.featured
-                      ? "text-brand-green hover:text-brand-green/80"
-                      : "text-primary hover:text-brand-green"
-                  }`}
+                <Link 
+                  href="/services" 
+                  className="mt-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary group-hover:text-accent transition-all"
                 >
-                  En savoir plus
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </article>
+                  Détails de l&apos;expertise
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+                </Link>
+              </motion.div>
             )
           })}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            Besoin d&apos;un accompagnement sur mesure ?
-          </p>
-          <Button asChild className="rounded-full bg-brand-green hover:bg-brand-green/90 text-primary h-11 px-8 font-bold shadow-lg border-b-2 border-black/10">
-            <a href="#contact">Discuter de votre projet</a>
-          </Button>
         </div>
       </div>
     </section>
   )
 }
+

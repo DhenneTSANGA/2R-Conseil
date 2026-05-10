@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { ArrowRight, Calendar, FileText, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -7,106 +10,125 @@ export function HeroSection() {
   return (
     <section
       id="accueil"
-      className="relative isolate overflow-hidden bg-premium-gradient text-primary-foreground pt-32 pb-20 lg:pt-40 lg:pb-28"
+      className="relative isolate overflow-hidden bg-primary pt-32 pb-20 lg:pt-48 lg:pb-32"
     >
-      {/* Décor subtil */}
+      {/* Background elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-accent/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary/40 blur-3xl" />
+        <Image
+          src="/placeholder.jpg?height=1080&width=1920&query=modern%20luxury%20office%20glass%20architecture%20abstract%20navy%20blue"
+          alt="Background"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-transparent" />
+        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl animate-pulse" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left content */}
-          <div className="lg:col-span-7 animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              Cabinet de conseil premium · Libreville
-            </div>
-
-            <h1 className="mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.05] tracking-tight text-balance">
-              Votre partenaire stratégique en{" "}
-              <span className="text-accent italic">comptabilité, audit</span> et conseil.
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-base sm:text-lg text-primary-foreground/75 leading-relaxed text-pretty">
-              Le Cabinet 2R Conseil accompagne PME, grandes entreprises et institutions au Gabon dans
-              leur performance financière, leur conformité réglementaire et leur transformation
-              durable.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="bg-brand-green hover:bg-brand-green/90 text-primary rounded-full px-7 h-12 font-bold shadow-lg border-b-2 border-black/10"
-              >
-                <Link href="/contact">
-                  Demander un devis
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full px-7 h-12 border-primary-foreground/25 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              >
-                <Link href="/contact">
-                  <Calendar className="mr-2 h-4 w-4 text-brand-green" />
-                  Prendre rendez-vous
-                </Link>
-              </Button>
-            </div>
-
-            {/* Mini features */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-              {[
-                { icon: ShieldCheck, label: "Confidentialité absolue" },
-                { icon: FileText, label: "Conformité OHADA" },
-                { icon: Calendar, label: "Réactivité 24/48h" },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-primary-foreground/15 bg-primary-foreground/5">
-                    <Icon className="h-4 w-4 text-accent" />
-                  </div>
-                  <span className="text-sm text-primary-foreground/85">{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right image */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=900&width=720&query=elegant%20african%20businesswoman%20in%20navy%20blue%20suit%20at%20modern%20corporate%20office%20premium%20editorial%20portrait"
-                alt="Équipe du Cabinet 2R Conseil en réunion stratégique"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
-            </div>
-
-            {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-background text-foreground rounded-xl p-5 shadow-2xl border border-border max-w-[260px]">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="font-serif text-2xl font-semibold text-primary leading-none">+15</p>
-                  <p className="text-xs text-muted-foreground mt-1">années d&apos;expertise</p>
-                </div>
+          <div className="lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-3 rounded-none border-l-4 border-accent bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground">
+                Expertise & Excellence au Gabon
               </div>
-              <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-                Au service des entreprises gabonaises et de la sous-région.
+
+              <h1 className="mt-8 font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1] tracking-tight text-white">
+                Bâtissons votre <br />
+                <span className="text-accent italic font-light">réussite stratégique.</span>
+              </h1>
+
+              <p className="mt-8 max-w-2xl text-lg sm:text-xl text-white/70 leading-relaxed font-light">
+                Le Cabinet 2R Conseil accompagne les institutions et les entreprises dans leur quête de performance, de conformité et de croissance durable au Gabon et dans la sous-région.
               </p>
-            </div>
+
+              <div className="mt-12 flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-accent hover:bg-accent/90 text-primary rounded-none px-10 h-16 text-sm font-bold uppercase tracking-widest shadow-2xl transition-all hover:translate-y-[-4px]"
+                >
+                  <Link href="/contact">
+                    Nos Expertises
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-none px-10 h-16 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-all uppercase tracking-widest text-xs font-bold"
+                >
+                  <Link href="/contact">
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Consultation gratuite
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Trust indicators */}
+              <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                {[
+                  { icon: ShieldCheck, label: "Audit & Conformité", desc: "Normes OHADA & Internationales" },
+                  { icon: FileText, label: "Fiscalité & Conseil", desc: "Optimisation & Accompagnement" },
+                  { icon: Calendar, label: "Expertise RH", desc: "Gestion de Paie & Recrutement" },
+                ].map(({ icon: Icon, label, desc }, i) => (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                    className="group"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-white/5 border border-white/10 group-hover:bg-accent/20 group-hover:border-accent/50 transition-colors">
+                        <Icon className="h-5 w-5 text-accent" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-white uppercase tracking-wider">{label}</p>
+                        <p className="text-xs text-white/50 mt-1">{desc}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+
+          {/* Right decorative element */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="lg:col-span-4 hidden lg:block relative"
+          >
+            <div className="relative aspect-[3/4] border border-white/10 p-4">
+              <div className="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 -z-10" />
+              <div className="relative h-full w-full overflow-hidden">
+                <Image
+                  src="/placeholder.jpg?height=1000&width=750&query=corporate%20leader%20gabon%20office%20premium%20suit"
+                  alt="Corporate Excellence"
+                  fill
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-primary/20 hover:bg-transparent transition-all duration-700" />
+              </div>
+            </div>
+
+            {/* Floating Stats */}
+            <div className="absolute -bottom-10 -left-10 bg-accent p-8 shadow-2xl">
+              <p className="text-5xl font-serif font-bold text-primary">15+</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary/80 mt-2">Années d&apos;expertise</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
+

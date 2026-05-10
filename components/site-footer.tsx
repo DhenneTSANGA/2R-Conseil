@@ -5,171 +5,107 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 const liens = {
-  Cabinet: [
-    { label: "À propos", href: "/cabinet" },
-    { label: "Notre équipe", href: "/equipe" },
-    { label: "Recrutement", href: "#" },
-    { label: "Blog", href: "/blog" },
+  Institution: [
+    { label: "Le Cabinet", href: "/cabinet" },
+    { label: "Expertises", href: "/services" },
+    { label: "Formations", href: "/formations" },
+    { label: "Carrières", href: "/carrieres" },
   ],
-  Services: [
-    { label: "Comptabilité", href: "/services" },
-    { label: "Audit", href: "/services" },
-    { label: "Conseil stratégique", href: "/services" },
-    { label: "Fiscalité", href: "/services" },
-    { label: "Formation", href: "/services" },
+  Expertises: [
+    { label: "Audit & Commissariat", href: "/services" },
+    { label: "Conseil Fiscal", href: "/services" },
+    { label: "Expertise Comptable", href: "/services" },
+    { label: "Gestion RH & Paie", href: "/services" },
   ],
   Ressources: [
-    { label: "Témoignages", href: "/#temoignages" },
-    { label: "FAQ", href: "#" },
-    { label: "Documentation", href: "#" },
-    { label: "Espace client", href: "#" },
+    { label: "Actualités", href: "/blog" },
+    { label: "Espace Client", href: "#" },
+    { label: "Mentions Légales", href: "#" },
+    { label: "Contact", href: "/contact" },
   ],
 }
 
 export function SiteFooter() {
   return (
-    <footer className="bg-premium-gradient text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        {/* Newsletter */}
-        <div className="grid lg:grid-cols-12 gap-10 pb-14 border-b border-primary-foreground/15">
-          <div className="lg:col-span-6">
-            <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-balance">
-              Recevez notre newsletter d&apos;expertise.
-            </h3>
-            <p className="mt-3 text-sm text-primary-foreground/70 max-w-md leading-relaxed">
-              Conseils fiscaux, actualités OHADA, astuces de gestion. Un email mensuel, sans spam.
-            </p>
-          </div>
-          <form className="lg:col-span-6 flex flex-col sm:flex-row gap-3 lg:items-end">
-            <Input
-              type="email"
-              required
-              placeholder="votre@email.com"
-              aria-label="Adresse email"
-              className="h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus-visible:ring-brand-green"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              className="h-12 px-6 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md font-semibold border-b-2 border-brand-green/50"
-            >
-              S&apos;inscrire
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
-        </div>
-
-        {/* Main footer */}
-        <div className="grid lg:grid-cols-12 gap-10 py-14">
+    <footer className="bg-primary text-white pt-24 pb-12 border-t border-white/5">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-16 pb-20">
+          {/* Info Cabinet */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-14 w-40 bg-white/10 rounded-lg p-2 transition-transform hover:scale-105">
+            <Link href="/" className="group inline-block">
+              <div className="relative h-16 w-48 mb-8">
                 <Image
                   src="/logo 2r.png"
                   alt="Cabinet 2R Conseil"
                   fill
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
                 />
               </div>
             </Link>
-            <p className="mt-6 text-sm text-primary-foreground/70 leading-relaxed max-w-sm">
-              Cabinet de conseil et d&apos;accompagnement des entreprises basé à Libreville.
-              Comptabilité, audit, fiscalité, RH, conseil et formation.
+            <p className="text-white/60 text-lg font-light leading-relaxed max-w-sm mb-10">
+              L&apos;excellence dans l&apos;accompagnement stratégique, fiscal et financier au Gabon. Bâtissons ensemble votre succès durable.
             </p>
+            <div className="flex gap-4">
+              {[Linkedin, MessageCircle].map((Icon, i) => (
+                <a 
+                  key={i} 
+                  href="#" 
+                  className="h-12 w-12 flex items-center justify-center border border-white/10 hover:border-accent hover:text-accent transition-all duration-300"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
 
-            <ul className="mt-7 space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-brand-green mt-0.5 shrink-0" />
-                <span className="text-primary-foreground/80">
-                  Boulevard du Bord de Mer, Libreville, Gabon
-                </span>
+          {/* Liens */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-12">
+            {Object.entries(liens).map(([title, items]) => (
+              <div key={title}>
+                <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-8">{title}</h4>
+                <ul className="space-y-4">
+                  {items.map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300 font-light">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Contact & Newsletter */}
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-8">Contact & Siège</h4>
+            <ul className="space-y-6 text-sm font-light text-white/70 mb-10">
+              <li className="flex items-start gap-4">
+                <MapPin className="h-5 w-5 text-accent shrink-0" />
+                <span>Boulevard du Bord de Mer, <br />Libreville, Gabon</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-brand-green shrink-0" />
-                <a
-                  href="tel:+24100000000"
-                  className="text-primary-foreground/80 hover:text-brand-green transition-colors"
-                >
-                  +241 00 00 00 00
-                </a>
+              <li className="flex items-center gap-4">
+                <Phone className="h-5 w-5 text-accent shrink-0" />
+                <a href="tel:+24100000000">+241 00 00 00 00</a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-brand-green shrink-0" />
-                <a
-                  href="mailto:contact@cabinet2r-conseil.ga"
-                  className="text-primary-foreground/80 hover:text-brand-green transition-colors"
-                >
-                  contact@cabinet2r-conseil.ga
-                </a>
+              <li className="flex items-center gap-4">
+                <Mail className="h-5 w-5 text-accent shrink-0" />
+                <a href="mailto:contact@cabinet2r-conseil.ga">contact@cabinet2r-conseil.ga</a>
               </li>
             </ul>
           </div>
-
-          {Object.entries(liens).map(([title, items]) => (
-            <div key={title} className="lg:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">
-                {title}
-              </p>
-              <ul className="mt-5 space-y-3">
-                {items.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-primary-foreground/75 hover:text-brand-green transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div className="lg:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-green">
-              Suivez-nous
-            </p>
-            <div className="mt-5 flex gap-3">
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 hover:bg-brand-green hover:border-brand-green hover:text-primary transition-colors"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a
-                href="https://wa.me/24100000000"
-                aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 hover:bg-brand-green hover:border-brand-green hover:text-primary transition-colors"
-              >
-                <MessageCircle className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-primary-foreground/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-primary-foreground/60">
-          <p>© {new Date().getFullYear()} Cabinet 2R Conseil — Tous droits réservés.</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            <li>
-              <a href="#" className="hover:text-brand-green transition-colors">
-                Mentions légales
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-brand-green transition-colors">
-                Confidentialité
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-brand-green transition-colors">
-                Cookies
-              </a>
-            </li>
-          </ul>
+        {/* Bottom bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+          <p>© {new Date().getFullYear()} Cabinet 2R Conseil. Tous droits réservés.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Politique de Confidentialité</a>
+            <a href="#" className="hover:text-white transition-colors">Plan du Site</a>
+          </div>
         </div>
       </div>
     </footer>
   )
 }
+
