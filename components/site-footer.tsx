@@ -46,13 +46,16 @@ export function SiteFooter() {
               L&apos;excellence dans l&apos;accompagnement stratégique, fiscal et financier au Gabon. Bâtissons ensemble votre succès durable.
             </p>
             <div className="flex gap-4">
-              {[Linkedin, MessageCircle].map((Icon, i) => (
+              {[
+                { icon: Linkedin, href: "#" },
+                { icon: MessageCircle, href: "#" }
+              ].map((item, i) => (
                 <a 
                   key={i} 
-                  href="#" 
-                  className="h-12 w-12 flex items-center justify-center border border-white/10 hover:border-accent hover:text-accent transition-all duration-300"
+                  href={item.href} 
+                  className="h-12 w-12 flex items-center justify-center border border-white/10 hover:border-accent hover:text-accent transition-all duration-500 hover:scale-110 hover:-rotate-6"
                 >
-                  <Icon className="h-5 w-5" />
+                  <item.icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
@@ -66,7 +69,7 @@ export function SiteFooter() {
                 <ul className="space-y-4">
                   {items.map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300 font-light">
+                      <Link href={item.href} className="text-sm text-white/50 hover:text-white transition-all duration-300 font-light hover:translate-x-1 inline-block">
                         {item.label}
                       </Link>
                     </li>
@@ -80,17 +83,17 @@ export function SiteFooter() {
           <div className="lg:col-span-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-8">Contact & Siège</h4>
             <ul className="space-y-6 text-sm font-light text-white/70 mb-10">
-              <li className="flex items-start gap-4">
-                <MapPin className="h-5 w-5 text-accent shrink-0" />
-                <span>Boulevard du Bord de Mer, <br />Libreville, Gabon</span>
+              <li className="flex items-start gap-4 group cursor-default">
+                <MapPin className="h-5 w-5 text-accent shrink-0 transition-transform group-hover:scale-110" />
+                <span className="group-hover:text-white transition-colors">Boulevard du Bord de Mer, <br />Libreville, Gabon</span>
               </li>
-              <li className="flex items-center gap-4">
-                <Phone className="h-5 w-5 text-accent shrink-0" />
-                <a href="tel:+24100000000">+241 00 00 00 00</a>
+              <li className="flex items-center gap-4 group">
+                <Phone className="h-5 w-5 text-accent shrink-0 transition-transform group-hover:scale-110" />
+                <a href="tel:+24100000000" className="group-hover:text-white transition-colors">+241 00 00 00 00</a>
               </li>
-              <li className="flex items-center gap-4">
-                <Mail className="h-5 w-5 text-accent shrink-0" />
-                <a href="mailto:contact@cabinet2r-conseil.ga">contact@cabinet2r-conseil.ga</a>
+              <li className="flex items-center gap-4 group">
+                <Mail className="h-5 w-5 text-accent shrink-0 transition-transform group-hover:scale-110" />
+                <a href="mailto:contact@cabinet2r-conseil.ga" className="group-hover:text-white transition-colors">contact@cabinet2r-conseil.ga</a>
               </li>
             </ul>
           </div>

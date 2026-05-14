@@ -1,8 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Calculator, ClipboardCheck, Lightbulb, GraduationCap, Users, Scale, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { RevealOnScroll } from "@/components/reveal-on-scroll"
 
 const expertises = [
   {
@@ -49,41 +49,31 @@ export function ServicesSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <RevealOnScroll animation="reveal-up">
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Pôles d&apos;Excellence</p>
               <h2 className="mt-6 font-serif text-4xl sm:text-5xl font-medium text-primary leading-[1.1]">
                 Des expertises transversales pour une <span className="italic">vision globale.</span>
               </h2>
-            </motion.div>
+            </RevealOnScroll>
           </div>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-muted-foreground leading-relaxed lg:max-w-md font-light"
-          >
-            Le Cabinet 2R Conseil déploie un accompagnement à 360° pour sécuriser et propulser vos activités.
-          </motion.p>
+          <RevealOnScroll animation="reveal-up" delay={200}>
+            <p className="text-lg text-muted-foreground leading-relaxed lg:max-w-md font-light">
+              Le Cabinet 2R Conseil déploie un accompagnement à 360° pour sécuriser et propulser vos activités.
+            </p>
+          </RevealOnScroll>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {expertises.map((item, i) => {
             const Icon = item.icon
             return (
-              <motion.div
+              <RevealOnScroll
                 key={item.titre}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative bg-background border border-border p-10 transition-all duration-500 hover:border-accent hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
+                animation="reveal-up"
+                delay={100 * (i % 3)}
+                className="group relative bg-background border border-border p-10 transition-all duration-500 hover:border-accent hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2"
               >
-                <div className="flex h-14 w-14 items-center justify-center bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-500">
+                <div className="flex h-14 w-14 items-center justify-center bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 group-hover:rotate-6">
                   <Icon className="h-6 w-6" />
                 </div>
 
@@ -97,7 +87,7 @@ export function ServicesSection() {
 
                 <ul className="mt-8 space-y-3">
                   {item.points.map((point) => (
-                    <li key={point} className="flex items-center gap-3 text-xs font-medium text-primary/70 uppercase tracking-widest">
+                    <li key={point} className="flex items-center gap-3 text-xs font-medium text-primary/70 uppercase tracking-widest transition-transform group-hover:translate-x-1">
                       <span className="h-px w-3 bg-accent" />
                       {point}
                     </li>
@@ -111,7 +101,7 @@ export function ServicesSection() {
                   Détails de l&apos;expertise
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
                 </Link>
-              </motion.div>
+              </RevealOnScroll>
             )
           })}
         </div>

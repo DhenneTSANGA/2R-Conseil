@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { RevealOnScroll } from "@/components/reveal-on-scroll"
 
 const stats = [
   { value: "15+", label: "Années d'excellence", description: "Une présence historique au Gabon" },
@@ -15,17 +15,15 @@ export function StatsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
-            <motion.div
+            <RevealOnScroll
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              animation="reveal-up"
+              delay={i * 100}
               className="relative group"
             >
-              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-accent/20 group-hover:bg-accent transition-colors duration-500" />
-              <div className="pl-6">
-                <p className="font-serif text-5xl lg:text-6xl font-bold text-primary tracking-tighter">
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-accent/20 group-hover:bg-accent transition-all duration-500 group-hover:w-2" />
+              <div className="pl-6 transition-transform duration-500 group-hover:translate-x-2">
+                <p className="font-serif text-5xl lg:text-6xl font-bold text-primary tracking-tighter group-hover:text-accent transition-colors">
                   {stat.value}
                 </p>
                 <p className="mt-4 text-sm font-bold uppercase tracking-[0.2em] text-primary/80">
@@ -35,7 +33,7 @@ export function StatsSection() {
                   {stat.description}
                 </p>
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
