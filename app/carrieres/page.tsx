@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Briefcase, Target, Zap, Users, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { RevealOnScroll } from "@/components/reveal-on-scroll"
 
 const valeurs = [
   {
@@ -28,20 +29,22 @@ export default function CarrieresPage() {
        <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/placeholder.jpg?height=1080&width=1920&query=professional%20handshake%20minimalist%20navy"
+            src="/images/9.jpg"
             alt="Carrières"
             fill
             className="object-cover"
           />
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.4em] text-accent mb-6">Talents</p>
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1]">
-              Rejoignez le <br />
-              <span className="italic font-light text-accent">cercle de l&apos;excellence.</span>
-            </h1>
-          </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <RevealOnScroll animation="reveal-up">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-xs font-bold uppercase tracking-[0.4em] text-accent mb-6">Talents</p>
+              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1]">
+                Rejoignez le <br />
+                <span className="italic font-light text-accent">cercle de l&apos;excellence.</span>
+              </h1>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -51,7 +54,7 @@ export default function CarrieresPage() {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
              <div className="relative aspect-square bg-secondary">
                <Image
-                src="/placeholder.jpg?height=800&width=800&query=young%20african%20professional%20smiling%20corporate"
+                src="/images/carriere.avif"
                 alt="Travailler chez 2R Conseil"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -104,19 +107,25 @@ export default function CarrieresPage() {
               { title: "Auditeur Senior", type: "CDI", dep: "Audit & Finance" },
               { title: "Consultant Fiscaliste", type: "CDI", dep: "Juridique & Fiscalité" },
               { title: "Gestionnaire de Paie Junior", type: "CDI", dep: "Ressources Humaines" }
-            ].map((job) => (
-              <div key={job.title} className="bg-background border border-border p-8 flex flex-col md:flex-row md:items-center justify-between gap-8 group hover:border-accent transition-all">
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest bg-accent/10 text-accent px-3 py-1">{job.type}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/40">{job.dep}</span>
+            ].map((job, i) => (
+              <RevealOnScroll
+                key={job.title}
+                animation="reveal-up"
+                delay={i * 100}
+              >
+                <div className="bg-background border border-border p-8 flex flex-col md:flex-row md:items-center justify-between gap-8 group hover:border-accent transition-all">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-[10px] font-bold uppercase tracking-widest bg-accent/10 text-accent px-3 py-1">{job.type}</span>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary/40">{job.dep}</span>
+                    </div>
+                    <h4 className="text-xl font-serif text-primary">{job.title}</h4>
                   </div>
-                  <h4 className="text-xl font-serif text-primary">{job.title}</h4>
+                  <Button asChild className="rounded-none bg-primary text-white h-12 px-8 font-bold uppercase tracking-widest text-[10px]">
+                    <Link href="/contact">Postuler maintenant</Link>
+                  </Button>
                 </div>
-                <Button asChild className="rounded-none bg-primary text-white h-12 px-8 font-bold uppercase tracking-widest text-[10px]">
-                  <Link href="/contact">Postuler maintenant</Link>
-                </Button>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
 
@@ -132,4 +141,3 @@ export default function CarrieresPage() {
     </div>
   )
 }
-

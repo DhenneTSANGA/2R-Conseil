@@ -1,6 +1,7 @@
 "use client"
 
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
+import { Counter } from "@/components/ui/counter"
 
 const stats = [
   { value: "15+", label: "Années d'excellence", description: "Une présence historique au Gabon" },
@@ -24,7 +25,7 @@ export function StatsSection() {
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-accent/20 group-hover:bg-accent transition-all duration-500 group-hover:w-2" />
               <div className="pl-6 transition-transform duration-500 group-hover:translate-x-2">
                 <p className="font-serif text-5xl lg:text-6xl font-bold text-primary tracking-tighter group-hover:text-accent transition-colors">
-                  {stat.value}
+                  <Counter value={stat.value} />
                 </p>
                 <p className="mt-4 text-sm font-bold uppercase tracking-[0.2em] text-primary/80">
                   {stat.label}

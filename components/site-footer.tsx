@@ -38,7 +38,7 @@ export function SiteFooter() {
                   src="/logo 2r.png"
                   alt="Cabinet 2R Conseil"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
               </div>
             </Link>

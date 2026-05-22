@@ -10,19 +10,19 @@ const articles = [
     title: "Loi de Finances 2026 : Impacts pour les PME",
     date: "15 Mai 2026",
     cat: "Fiscalité",
-    img: "/placeholder.jpg?height=600&width=800&query=tax%20finance%20minimalist"
+    img: "/images/finances.avif"
   },
   {
     title: "Optimisation de la Paie en zone OHADA",
     date: "02 Mai 2026",
     cat: "RH",
-    img: "/placeholder.jpg?height=600&width=800&query=hr%20meeting%20minimalist"
+    img: "/images/ohada.avif"
   },
   {
     title: "Digitalisation Comptable : Guide Complet",
     date: "20 Avril 2026",
     cat: "Innovation",
-    img: "/placeholder.jpg?height=600&width=800&query=digital%20accounting%20minimalist"
+    img: "/images/7.jpg"
   }
 ]
 

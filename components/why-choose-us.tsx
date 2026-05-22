@@ -2,6 +2,7 @@
 
 import { ShieldCheck, Globe, BarChart3, Users, Fingerprint } from "lucide-react"
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
+import Image from "next/image"
 
 const reasons = [
   {
@@ -75,8 +76,15 @@ export function WhyChooseUs() {
               <div className="absolute -top-10 -right-10 w-40 h-40 border-t border-r border-accent/30 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 border-b border-l border-accent/30 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
               <div className="relative h-full w-full overflow-hidden bg-white/5 backdrop-blur-3xl flex items-center justify-center">
-                <div className="text-center p-12">
-                  <Fingerprint className="h-20 w-20 text-accent mx-auto mb-8 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+                <Image
+                  src="/images/4.jpg"
+                  alt="Background"
+                  fill
+                  className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-[2000ms]"
+                />
+                <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/40 transition-colors duration-700" />
+                <div className="relative text-center p-12 z-10">
+                  <Fingerprint className="h-20 w-20 text-accent mx-auto mb-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-[0_0_15px_rgba(var(--color-accent),0.5)]" />
                   <p className="font-serif text-2xl text-white italic">"Votre confiance est notre actif le plus précieux."</p>
                   <p className="mt-6 text-xs font-bold uppercase tracking-widest text-accent">Direction Générale</p>
                 </div>
@@ -88,4 +96,3 @@ export function WhyChooseUs() {
     </section>
   )
 }
-

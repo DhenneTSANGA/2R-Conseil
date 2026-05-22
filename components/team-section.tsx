@@ -9,25 +9,25 @@ const equipe = [
     nom: "Roland Mavoungou",
     poste: "Associé Fondateur",
     specialite: "Audit & Expertise Comptable",
-    photo: "/placeholder.jpg?height=800&width=600&query=professional%20african%20male%20accountant%20mature%20navy%20suit%20studio%20portrait%20premium",
+    photo: "/images/6.jpg",
   },
   {
     nom: "Régine Ondo",
     poste: "Associée",
     specialite: "Directrice Audit & Fiscalité",
-    photo: "/placeholder.jpg?height=800&width=600&query=professional%20african%20female%20auditor%20business%20suit%20studio%20portrait%20premium",
+    photo: "/images/10.jpg",
   },
   {
     nom: "Patrick Nzigou",
     poste: "Senior Manager",
     specialite: "Conseil Stratégique",
-    photo: "/placeholder.jpg?height=800&width=600&query=professional%20african%20business%20consultant%20young%20suit%20studio%20portrait%20premium",
+    photo: "/images/2.jpg",
   },
   {
     nom: "Fatou Diallo",
     poste: "Manager",
     specialite: "Capital Humain & Formation",
-    photo: "/placeholder.jpg?height=800&width=600&query=professional%20african%20female%20hr%20manager%20smiling%20studio%20portrait%20premium",
+    photo: "/images/3.jpg",
   },
 ]
 
