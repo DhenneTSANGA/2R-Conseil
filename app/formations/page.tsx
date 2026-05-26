@@ -29,7 +29,7 @@ export default function FormationsPage() {
        <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/3.jpg"
+            src="/images/3.webp"
             alt="Formations"
             fill
             className="object-cover"

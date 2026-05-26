@@ -10,14 +10,14 @@ const temoignages = [
     auteur: "Marie-Claire Mavoungou",
     poste: "Directrice Financière",
     entreprise: "GabonLogistics SA",
-    photo: "/images/11.jpg",
+    photo: "/images/11.webp",
   },
   {
     citation: "Un accompagnement d'exception. L'équipe fait preuve d'une maîtrise parfaite des enjeux OHADA, ce qui sécurise l'ensemble de nos opérations régionales.",
     auteur: "Jean-Pierre Boundou",
     poste: "PDG",
     entreprise: "Boundou Industries",
-    photo: "/images/8.jpg",
+    photo: "/images/8.webp",
   },
 ]
 

@@ -25,7 +25,7 @@ const articles = [
     desc: "Pourquoi et comment passer à une comptabilité 100% digitale pour gagner en réactivité.",
     date: "20 Avril 2026",
     cat: "Innovation",
-    img: "/images/7.jpg"
+    img: "/images/7.webp"
   }
 ]
 
@@ -36,7 +36,7 @@ export default function BlogPage() {
       <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/8.jpg"
+            src="/images/8.webp"
             alt="Actualités"
             fill
             className="object-cover"

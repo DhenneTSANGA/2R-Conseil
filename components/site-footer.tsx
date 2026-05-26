@@ -33,7 +33,7 @@ export function SiteFooter() {
           {/* Info Cabinet */}
           <div className="lg:col-span-4">
             <Link href="/" className="group inline-block">
-              <div className="relative h-16 w-48 mb-8">
+              <div className="relative h-50 w-65 mb-8">
                 <Image
                   src="/logo 2r.png"
                   alt="Cabinet 2R Conseil"

@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="animate-zoom-in h-full w-full">
           <Image
-            src="/images/4.jpg"
+            src="/images/4.webp"
             alt="Background"
             fill
             className="object-cover opacity-20"
@@ -99,7 +99,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500" />
                 <div className="relative h-full w-full overflow-hidden">
                   <Image
-                    src="/images/1.jpg"
+                    src="/images/1.webp"
                     alt="Corporate Excellence"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"

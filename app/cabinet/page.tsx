@@ -12,7 +12,7 @@ export default function CabinetPage() {
       <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/1.jpg"
+            src="/images/1.webp"
             alt="Le Cabinet"
             fill
             className="object-cover"

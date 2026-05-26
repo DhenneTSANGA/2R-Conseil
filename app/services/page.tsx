@@ -35,7 +35,7 @@ export default function ServicesPage() {
       <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/10.jpg"
+            src="/images/10.webp"
             alt="Expertises"
             fill
             className="object-cover"

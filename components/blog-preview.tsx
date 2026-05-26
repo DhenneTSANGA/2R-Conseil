@@ -22,7 +22,7 @@ const articles = [
     title: "Digitalisation Comptable : Guide Complet",
     date: "20 Avril 2026",
     cat: "Innovation",
-    img: "/images/7.jpg"
+    img: "/images/7.webp"
   }
 ]
 

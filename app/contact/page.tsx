@@ -9,7 +9,7 @@ export default function ContactPage() {
       <section className="relative py-24 lg:py-32 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/6.jpg"
+            src="/images/6.webp"
             alt="Contact"
             fill
             className="object-cover"
@@ -40,7 +40,7 @@ export default function ContactPage() {
                 </p>
                 <div className="h-96 w-full bg-border/50 relative overflow-hidden grayscale border border-primary/10">
                   <Image
-                    src="/images/1.jpg"
+                    src="/images/1.webp"
                     alt="Localisation"
                     fill
                     className="object-cover opacity-50"

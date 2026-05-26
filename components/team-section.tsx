@@ -9,25 +9,25 @@ const equipe = [
     nom: "Roland Mavoungou",
     poste: "Associé Fondateur",
     specialite: "Audit & Expertise Comptable",
-    photo: "/images/6.jpg",
+    photo: "/images/6.webp",
   },
   {
     nom: "Régine Ondo",
     poste: "Associée",
     specialite: "Directrice Audit & Fiscalité",
-    photo: "/images/10.jpg",
+    photo: "/images/10.webp",
   },
   {
     nom: "Patrick Nzigou",
     poste: "Senior Manager",
     specialite: "Conseil Stratégique",
-    photo: "/images/2.jpg",
+    photo: "/images/2.webp",
   },
   {
     nom: "Fatou Diallo",
     poste: "Manager",
     specialite: "Capital Humain & Formation",
-    photo: "/images/3.jpg",
+    photo: "/images/3.webp",
   },
 ]
 

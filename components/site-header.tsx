@@ -60,7 +60,7 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]">
-            <div className="relative h-14 w-40 sm:h-12 sm:w-40 lg:h-16 lg:w-52">
+            <div className="relative h-24 w-20 sm:h-12 sm:w-40 lg:h-40 lg:w-52">
               <Image
                 src="/logo 2r.png"
                 alt="Cabinet 2R Conseil"
@@ -116,31 +116,47 @@ export function SiteHeader() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className={cn(
-          "lg:hidden fixed inset-x-0 bottom-0 bg-background/98 backdrop-blur-xl z-50 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-auto",
-          scrolled ? "top-[64px]" : "top-[100px]"
+          "lg:hidden fixed inset-0 bg-background z-[60] flex flex-col animate-in fade-in duration-300 pointer-events-auto",
         )}>
-          <nav className="mx-auto max-w-7xl px-6 py-8 flex flex-col gap-2">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-border/50">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="relative h-10 w-32">
+              <Image
+                src="/logo 2r.png"
+                alt="Cabinet 2R Conseil"
+                fill
+                className="object-contain"
+                priority
+              />
+            </Link>
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="p-2 text-primary"
+            >
+              <X className="h-8 w-8" />
+            </button>
+          </div>
+          <nav className="flex-1 px-6 py-8 flex flex-col gap-1 overflow-y-auto">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="group flex items-center justify-between py-4 border-b border-border/50 text-xl font-serif text-primary hover:text-accent transition-colors"
+                className="group flex items-center justify-between py-5 border-b border-border/30 text-2xl font-serif text-primary active:text-accent transition-colors"
               >
                 {item.name}
-                <ArrowRight className="h-5 w-5 opacity-0 -translate-x-4 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <ArrowRight className="h-5 w-5 text-accent" />
               </Link>
             ))}
-            <div className="mt-8 flex flex-col gap-6">
+            <div className="mt-auto pt-10 pb-8 flex flex-col gap-6">
               <a href="tel:+24100000000" className="flex items-center gap-3 text-lg font-medium text-foreground">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
-                  <Phone className="h-5 w-5 text-brand-green" />
+                  <Phone className="h-5 w-5 text-accent" />
                 </div>
                 +241 00 00 00 00
               </a>
-              <Button asChild size="lg" className="bg-primary text-primary-foreground rounded-none h-14 text-sm font-bold uppercase tracking-widest shadow-xl">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground rounded-none h-16 text-sm font-bold uppercase tracking-widest shadow-xl">
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  Demander une consultation
+                  Consultation gratuite
                 </Link>
               </Button>
             </div>

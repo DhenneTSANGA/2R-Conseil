@@ -112,11 +112,20 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent/30;
+    @apply bg-background text-foreground selection:bg-accent/30 overflow-x-hidden;
     font-feature-settings: "ss01", "cv11", "kern";
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight text-primary;
+  h1 {
+    @apply font-serif font-medium text-primary leading-[1.1] tracking-tight text-[clamp(2.5rem,8vw,5rem)];
+  }
+  h2 {
+    @apply font-serif font-medium text-primary leading-tight tracking-tight text-[clamp(2rem,6vw,3.5rem)];
+  }
+  h3 {
+    @apply font-serif font-medium text-primary leading-snug tracking-tight text-[clamp(1.5rem,4vw,2.5rem)];
+  }
+  p {
+    @apply text-pretty;
   }
 }
 
