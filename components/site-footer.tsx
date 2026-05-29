@@ -18,9 +18,9 @@ const liens = {
     { label: "Gestion RH & Paie", href: "/services" },
   ],
   Ressources: [
+    { label: "Demander un Devis", href: "/devis" },
     { label: "Actualités", href: "/blog" },
     { label: "Espace Client", href: "#" },
-    { label: "Mentions Légales", href: "#" },
     { label: "Contact", href: "/contact" },
   ],
 }

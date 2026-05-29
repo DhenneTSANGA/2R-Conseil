@@ -62,9 +62,9 @@ export function HeroSection() {
                   variant="outline"
                   className="rounded-none px-10 h-16 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-all uppercase tracking-widest text-xs font-bold group"
                 >
-                  <Link href="/contact">
+                  <Link href="/devis">
                     <Calendar className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                    Consultation gratuite
+                    Demander un devis
                   </Link>
                 </Button>
               </div>

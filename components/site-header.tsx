@@ -43,7 +43,7 @@ export function SiteHeader() {
             +241 00 00 00 00
           </a>
           <Button asChild variant="link" className="h-auto p-0 text-[10px] font-bold uppercase tracking-widest text-accent hover:text-white transition-colors border-l border-white/10 pl-6 rounded-none">
-            <Link href="/contact">Demander une consultation</Link>
+            <Link href="/devis">Demander un devis</Link>
           </Button>
         </div>
       </div>
@@ -155,8 +155,8 @@ export function SiteHeader() {
                 +241 00 00 00 00
               </a>
               <Button asChild size="lg" className="bg-primary text-primary-foreground rounded-none h-16 text-sm font-bold uppercase tracking-widest shadow-xl">
-                <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  Consultation gratuite
+                <Link href="/devis" onClick={() => setMobileOpen(false)}>
+                  Demander un devis
                 </Link>
               </Button>
             </div>
