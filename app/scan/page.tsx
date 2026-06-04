@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ScanPage() {
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center p-6 bg-background">
+    <div className="flex min-h-screen flex-col items-center justify-center p-6 pt-32 bg-background">
       <div className="relative group animate-reveal-up">
         <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent/20 to-primary/20 blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
         <div className="relative flex flex-col items-center gap-6 rounded-2xl bg-card p-8 shadow-2xl border border-border/50">
@@ -22,7 +22,7 @@ export default function ScanPage() {
                 Sinon, cela affichera une erreur 404 pour l'image.
             */}
             <Image
-              src="/images/qrcode.png"
+              src="/images/qrcode2.png"
               alt="QR Code"
               width={400}
               height={400}

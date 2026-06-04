@@ -54,7 +54,7 @@ export default function CarrieresPage() {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
              <div className="relative aspect-square bg-secondary">
                <Image
-                src="/images/carriere.avif"
+                src="/images/1.jpg"
                 alt="Travailler chez 2R Conseil"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"

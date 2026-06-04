@@ -21,7 +21,7 @@ export function AboutSection() {
               <div className="absolute inset-0 border border-primary/10 translate-x-8 translate-y-8 -z-10 group-hover:translate-x-10 group-hover:translate-y-10 transition-transform duration-500" />
               <div className="relative h-full w-full overflow-hidden">
                 <Image
-                  src="/images/4.webp"
+                  src="/images/5.jpg"
                   alt="Cabinet 2R Conseil"
                   fill
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"

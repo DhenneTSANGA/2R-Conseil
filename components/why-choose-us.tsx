@@ -77,7 +77,7 @@ export function WhyChooseUs() {
               <div className="absolute -bottom-10 -left-10 w-40 h-40 border-b border-l border-accent/30 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
               <div className="relative h-full w-full overflow-hidden bg-white/5 backdrop-blur-3xl flex items-center justify-center">
                 <Image
-                  src="/images/4.webp"
+                  src="/images/8.jpg"
                   alt="Background"
                   fill
                   className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-[2000ms]"

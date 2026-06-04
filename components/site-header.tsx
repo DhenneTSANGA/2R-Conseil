@@ -30,13 +30,8 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex flex-col pointer-events-none">
-      {/* Topbar - Toujours visible avec un style minimaliste */}
-      <div className={cn(
-        "w-full py-2 transition-all duration-500 pointer-events-auto",
-        scrolled 
-          ? "bg-primary border-b border-white/5 translate-y-[-100%] opacity-0 h-0 py-0 overflow-hidden" 
-          : "bg-primary/95 backdrop-blur-sm border-b border-white/5"
-      )}>
+      {/* Topbar - Fixe et Opaque */}
+      <div className="w-full py-2 transition-all duration-500 pointer-events-auto bg-primary border-b border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-6">
           <a href="tel:+24100000000" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/80 hover:text-accent transition-colors">
             <Phone className="h-3 w-3 text-accent" />
@@ -48,19 +43,16 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation - Toujours Opaque */}
       <div
         className={cn(
-          "w-full transition-all duration-500 pointer-events-auto",
-          scrolled || mobileOpen
-            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm py-1 sm:py-2"
-            : "bg-transparent py-2 sm:py-4",
+          "w-full transition-all duration-500 pointer-events-auto bg-background border-b border-border/50 shadow-sm py-2 sm:py-3",
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]">
-            <div className="relative h-16 w-30 sm:h-10 sm:w-36 lg:h-12 lg:w-40">
+            <div className="relative h-16 w-40 sm:h-14 sm:w-48 lg:h-16 lg:w-56">
               <Image
                 src="/logo 2r.png"
                 alt="Cabinet 2R Conseil"
@@ -77,34 +69,22 @@ export function SiteHeader() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={cn(
-                  "px-4 py-2 text-sm font-medium transition-all duration-300 rounded-sm relative group",
-                  scrolled || mobileOpen
-                    ? "text-primary hover:bg-secondary/50" 
-                    : "text-white hover:bg-white/10"
-                )}
+                className="px-4 py-2 text-sm font-medium transition-all duration-300 rounded-sm relative group text-primary hover:bg-secondary/50"
               >
                 {item.name}
-                <span className={cn(
-                  "absolute bottom-1 left-4 right-4 h-0.5 scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left",
-                  scrolled || mobileOpen ? "bg-accent" : "bg-brand-gold"
-                )} />
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left bg-accent" />
               </Link>
             ))}
           </nav>
 
           {/* Right Section Desktop */}
           <div className="hidden lg:flex items-center">
-            {/* Vide ou bouton secondaire si besoin, mais CTA principal est en Topbar */}
           </div>
 
           {/* Mobile toggle */}
           <button
             type="button"
-            className={cn(
-              "lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm transition-colors",
-              scrolled || mobileOpen ? "text-primary hover:bg-secondary" : "text-white hover:bg-white/10"
-            )}
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm transition-colors text-primary hover:bg-secondary"
             onClick={() => setMobileOpen((s) => !s)}
             aria-label="Ouvrir le menu"
           >

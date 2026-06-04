@@ -99,7 +99,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500" />
                 <div className="relative h-full w-full overflow-hidden">
                   <Image
-                    src="/images/1.webp"
+                    src="/images/22.jpg"
                     alt="Corporate Excellence"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
