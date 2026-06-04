@@ -60,7 +60,7 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.02]">
-            <div className="relative h-24 w-20 sm:h-12 sm:w-40 lg:h-40 lg:w-52">
+            <div className="relative h-16 w-30 sm:h-10 sm:w-36 lg:h-12 lg:w-40">
               <Image
                 src="/logo 2r.png"
                 alt="Cabinet 2R Conseil"
