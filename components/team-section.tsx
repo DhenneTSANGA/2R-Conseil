@@ -21,13 +21,13 @@ const equipe = [
     nom: "Patrick Nzigou",
     poste: "Senior Manager",
     specialite: "Conseil Stratégique",
-    photo: "/images/2.webp",
+    photo: "/images/22.jpg",
   },
   {
     nom: "Fatou Diallo",
     poste: "Manager",
     specialite: "Capital Humain & Formation",
-    photo: "/images/3.webp",
+    photo: "/images/10.jpg",
   },
 ]
 
